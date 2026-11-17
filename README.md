@@ -11,7 +11,7 @@ A one-click [Railway](https://railway.com) template for [Outpost](https://github
 | Service | Source | What it does | Data |
 |---|---|---|---|
 | **Outpost** | this repo, [`outpost/`](outpost/) | API, delivery and log services in one process, on the public domain. Health check `/healthz` | none (stateless) |
-| **Redis** | this repo, [`redis/`](redis/) (`redis:8.10.3-alpine`, pinned) | Tenants, destinations and their encrypted credentials, retry schedule. Redis 8's query engine turns on Outpost's "list tenants" API | volume `/data`, append-only file plus snapshots, no eviction |
+| **Redis** | this repo, [`redis/`](redis/) (`redis:8.10.3-alpine`, pinned) | Tenants, destinations and their encrypted credentials, retry schedule. Redis 8's query engine turns on Outpost's "list tenants" API | volume `/data` (files in `/data/redis`), append-only file plus snapshots, no eviction |
 | **RabbitMQ** | this repo, [`rabbitmq/`](rabbitmq/) (`rabbitmq:4.4.0-alpine`, pinned) | Outpost's internal delivery and log queues | volume `/var/lib/rabbitmq`, fixed node name |
 | **Postgres** | Railway's Postgres | Event and delivery-attempt log | Railway volume |
 
